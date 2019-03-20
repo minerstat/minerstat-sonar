@@ -31,10 +31,10 @@ var path = require('path'),
         // Create the browser window.
         mainWindow = new BrowserWindow({
             width: 300,
-            height: 360,
-            maxWidth: 320,
+            height: 357,
+            maxWidth: 300,
             maxHeight: 357,
-            minWidth: 320,
+            minWidth: 300,
             minHeight: 357,
             frame: false,
             "fullscreen": false,
