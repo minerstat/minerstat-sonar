@@ -1,0 +1,28 @@
+sudo: true
+language: node_js
+node_js:
+  - '11'
+os: osx
+install:
+  - npm install -g node-gyp
+  - npm install -g electron-packager
+  - npm install
+  - electron-packager . sonar --overwrite --platform=darwin --arch=x64 --icon=asset/logo.icns --prune=true --out=release-builds
+before_deploy:
+  - cd release-builds/sonar-darwin-x64
+  - zip -r minerstat-sonar-mac.zip .
+  - git config --local user.name "coinscrow"
+  - git config --local user.email "info@minerstat.com"
+  - if [ -z "$TRAVIS_TAG" ] ; then TRAVIS_TAG=latest; fi
+deploy:
+  provider: releases
+  api_key:
+    secure: kgp/tmlxGfRW9le3TpEtGwrau85k+zlB6e3ibCj7ho1IUBrgyZW7+3ah+XnCHReFd1NiWItHDS4J7/x8baQPAFmSFDBPOJ/N4j7crz/Z8vYHyVHE4RlgLB6uNIISUezLj6kif7UeDOH9nMx1WfSkKlNwKTjY8L0OKkO99RGAoJX+XWdUwVqcUFqAboRuRC8+blbb9yIWy44GSCKUVo//ASWDigznwqFwT54LYVQsPikTlScXQp9urR08fyIL4sSYKHZM28RSwKHcyY3OHO61dYZYT3NVoALY2/RQyezdU0N/mOfcDbbHhM+T3wgxXou5ZHFlT5+Mfp3SvD9jMd8eHaZ+KyySPDavU/uitCfmNQLxR2+ntqu/JYwW+V5RHbYYw6CQNKfIvvswIgxSkHRZI8A8enbwZmABe+gDCYOCc1PhVENTFi74jyj9QC1Gc3b6YM+m8xt1dUscn3N+xhxnH/Mg5rwyhgRIyyxjTXnMIPo7zHglzWQKOqcSz0KL8EeOHUxSBkZLt+vz5hXsufSFj4q5viERinr9sUSU8ynoI6kzqYG6lSXE0kRAJrwl6yInnDlUKO4Jo685L1zZNJBNHNEejwj4K6a6BVU8KqbdODDQshXBnohWNX46qyXrK0OJh///qVWfXDerk+A8c5cBwTgJLxY8rXVvhZj7yiSX7rY=
+    file: "$TRAVIS_BUILD_DIR/release-builds/sonar-darwin-x64/minerstat-sonar-mac.zip"
+  skip_cleanup: true
+  overwrite: true
+  prerelease: true
+  draft: false
+  on:
+    tags: false
+    branch: master
