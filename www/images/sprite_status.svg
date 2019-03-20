@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="48px" height="16px" viewBox="0 0 48 16" style="enable-background:new 0 0 48 16;" xml:space="preserve">
+<style type="text/css">
+	
+		.st0{opacity:0.4;fill:none;stroke:url(#SVGID_1_);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	
+		.st1{opacity:0.4;fill:none;stroke:url(#SVGID_2_);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#46474F;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#B8BAC9;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+</style>
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="30.5251" y1="9.4498" x2="40.3891" y2="-0.4142" gradientTransform="matrix(0.7071 -0.7071 0.7071 0.7071 8.2335 28.8774)">
+	<stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:0"/>
+	<stop  offset="1" style="stop-color:#000000"/>
+</linearGradient>
+<path class="st0" d="M35.1,13c-2.7-2.7-2.7-7.2,0-9.9C36.4,1.7,38.2,1,40,1"/>
+<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="33.0858" y1="9.0104" x2="39.3284" y2="2.7678" gradientTransform="matrix(0.7071 -0.7071 0.7071 0.7071 8.2335 28.8774)">
+	<stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:0"/>
+	<stop  offset="1" style="stop-color:#000000"/>
+</linearGradient>
+<path class="st1" d="M37.2,10.9c-1.6-1.6-1.6-4.1,0-5.7C38,4.4,39,4,40,4"/>
+<path class="st2" d="M2.6,5.6C3.9,4,5.8,3,8,3c2.2,0,4.1,1,5.4,2.5"/>
+<path class="st2" d="M4.9,7.9C5.7,7.1,6.8,6.5,8,6.5c1.2,0,2.3,0.6,3.1,1.4"/>
+<circle class="st2" cx="8" cy="11" r="1"/>
+<circle class="st2" cx="40" cy="8" r="1"/>
+<path class="st3" d="M18.6,5.6C19.9,4,21.8,3,24,3c2.2,0,4.1,1,5.4,2.5"/>
+<path class="st3" d="M20.9,7.9c0.7-0.9,1.8-1.4,3.1-1.4c1.2,0,2.3,0.6,3.1,1.4"/>
+<circle class="st3" cx="24" cy="11" r="1"/>
+<line class="st2" x1="40" y1="8" x2="40" y2="1"/>
+</svg>
