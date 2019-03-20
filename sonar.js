@@ -6,7 +6,6 @@ const tcpp = require('tcp-ping');
 var id = require('node-machine-id');
 var machine_ID = id.machineIdSync();
 var waiting_LIST = [];
-var busy = false;
 var currentProc = 0;
 
 window.onerror = function(msg, url, linenumber) {
@@ -30,32 +29,17 @@ function sendMessage(m) {
 function processList() {
     var linterval = setInterval(function() {
         try {
-            if (currentProc == 5) {
-                busy = true;
-            }
-            if (currentProc == 0) {
-                busy = false;
-            }
-            if (waiting_LIST.length > 0) {
+            if (waiting_LIST.length > 0 && currentProc <= 4) {
                 currentProc++;
                 var json = waiting_LIST[0];
                 var json = JSON.parse(json);
                 pingTCP(json["pool"], json["port"], json["current"], json["max"], json["callback"]);
-                if (currentProc == json["max"] && currentProc < 5) {
-                    busy = true;
-                }
                 waiting_LIST.splice(0, 1);
             }
             if (waiting_LIST.length == 0 && currentProc == 0) {
                     clearInterval(linterval);
                     statusIcon.classList.remove("scanning");
                     statusText.innerHTML = "Connected";
-                    setTimeout(function() {
-                        // Reload after 10 sec idle and no job (new ID)
-                        if (busy == false && currentProc == 0) {
-                            location.reload();
-                        }
-                    }, 10000);
             }
         } catch (loerr) {
             alert(loerr);
@@ -148,7 +132,6 @@ function pingTCP(a, b, current, cmax, bID) {
                     if (exe == 1) {
                         sendEmit("submit", bID + "|" + JSON.stringify(resultBuild));
                         sent = 1;
-                        busy = false;
                         if (currentProc > 0 && currentProc <= 5) {
                             currentProc--;
                         }
@@ -159,7 +142,6 @@ function pingTCP(a, b, current, cmax, bID) {
                 if (sent == 0) {
                     var poolname = a + ":" + b;
                     sendEmit("submit", bID + '|{"pool":"' + poolname + '","med":"-1","min":"-1","max":"-1"}');
-                    busy = false;
                     if (currentProc > 0 && currentProc <= 5) {
                         currentProc--;
                     }
@@ -239,7 +221,7 @@ socket.on('connect', function() {
                 } catch (perr) {}
 
             }
-            if (busy == false) {
+            if (currentProc == 0) {
                 processList();
             }
         }
@@ -257,6 +239,22 @@ socket.on('disconnect', function() {
     mainButton.setAttribute("onClick", "");
     //firstInit();
     location.reload();
+});
+
+
+/*
+	MAIN FRAME BUTTONS
+*/
+document.getElementsByClassName("minimize")[0].addEventListener("click", function(e) {
+    var window = remote.getCurrentWindow();
+    window.minimize();
+});
+document.getElementsByClassName("close")[0].addEventListener("click", function(e) {
+    try {
+      sendMessage('logout:' + machine_ID);
+    } catch (err) {}
+    var window = remote.getCurrentWindow();
+    window.close();
 });
 
 

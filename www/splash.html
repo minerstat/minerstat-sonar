@@ -7,16 +7,37 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="style/style-light.css"/>
+	<link rel="preload" href="https://raw.githack.com/minerstat/minerstat-sonar/master/www/style/style-light.css"/>
+	<link rel="preload" href="https://raw.githack.com/minerstat/minerstat-sonar/master/window.js"/>
+	<link rel="preload" href="https://raw.githack.com/minerstat/minerstat-sonar/master/sonar.js"/>
 </head>
 <body><div id="frame">
 	<div class="splash">
 		<div class="splash_content">
 			<div class="logo"></div>
-			<h1>Loading<h1>
+			<h1 id="altText">Loading<h1>
 		</div>
 	</div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Insert this line above script imports  -->
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+<script src="jquery.min.js"></script>
 <script src="../window.js"></script>
+<script>
+function updateIndicator() {
+	if(navigator.onLine) {
+		parent.window.location.href = "index.html";
+	} else {
+		var mainButton = document.getElementById("altText");
+		statusText.innerHTML = "No internet connection..";
+	}
+}
+$(document).ready( function() {
+	setTimeout(function(){ updateIndicator(); }, 1000);
+});
+// Update the online status icon based on connectivity
+window.addEventListener('online',  updateIndicator);
+window.addEventListener('offline', updateIndicator);
+</script>
 </body>
 </html>

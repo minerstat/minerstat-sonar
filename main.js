@@ -49,7 +49,7 @@ var path = require('path'),
         //mainWindow.webContents.openDevTools()
         // and load the index.html for minerstat.
         mainWindow.loadURL(url.format({
-            pathname: path.join(__dirname, 'www/index.html'),
+            pathname: path.join(__dirname, 'www/splash.html'),
             protocol: 'file:',
             slashes: true
         }))
