@@ -20,11 +20,11 @@ install:
   - cmd: electron-packager . sonar --overwrite --asar --platform=linux --arch=armv7l --icon=asset/1024x1024.png --prune=true --out=release-builds
 
 artifacts:
-- path: release-builds/minerstat-win32-ia32
+- path: release-builds/sonar-win32-ia32
   name: minerstat-sonar-windows
-- path: release-builds/minerstat-linux-x64
+- path: release-builds/sonar-linux-x64
   name: minerstat-sonar-linux
-- path: release-builds/minerstat-linux-armv7l
+- path: release-builds/sonar-linux-armv7l
   name: minerstat-sonar-raspberry
 
 deploy:
