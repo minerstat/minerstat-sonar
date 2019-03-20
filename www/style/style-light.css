@@ -27,7 +27,7 @@ body{background:#ffftext-align:left;font-weight:300;font-size:16px;line-height:1
  .title{margin:40px 0 10px 0;font-weight:600;color:#575e71;font-size:18px;}
  p{margin:0 auto 0 auto;font-weight:300;color:#8d95ab;font-size:16px;max-width:360px;line-height:1.1;padding:0 20px;}
 
-.button{margin:37px auto 40px auto;background:#5767ff;font-weight:600;color:#fff;font-size:16px;padding:10px 25px;min-width:100px;border-radius:3px;cursor:pointer;display:table;transition:all 0.2s ease;text-decoration:none;}
+.button{margin:37px auto 40px auto;background:#5767ff;font-weight:600;color:#fff;font-size:16px;padding:10px 25px;min-width:100px;border-radius:3px;cursor:pointer;display:table;transition:all 0.2s ease;text-decoration:none; -webkit-app-region: no-drag;}
 .button:hover{background:#52cca5;}
 .button.disabled{background:#e2e5ef;color:#fff;cursor:default;}
 .button.disabled:hover{background:#e2e5ef;color:#fff;}
@@ -44,3 +44,7 @@ body{background:#ffftext-align:left;font-weight:300;font-size:16px;line-height:1
 	0% { transform: rotate(0deg); }
 	100% { transform: rotate(360deg); }
 }
+
+.splash{text-align:center;-webkit-app-region:drag;position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;background:#5767ff;}
+.splash .logo{background:url("../images/logo.svg") no-repeat;background-size:232px 80px;background-position:0 0;width:80px;height:80px;margin:0 auto 0 auto;animation:scanning 2s infinite linear;}
+.splash h1{color:#fff;font-size:16px;font-weight:700;margin:12px auto 0 auto;}

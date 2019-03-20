@@ -47,17 +47,15 @@ function processList() {
                 waiting_LIST.splice(0, 1);
             }
             if (waiting_LIST.length == 0 && currentProc == 0) {
-                if (busy == false) {
                     clearInterval(linterval);
                     statusIcon.classList.remove("scanning");
                     statusText.innerHTML = "Connected";
                     setTimeout(function() {
-                        // Reload after 18 sec idle and no job (new ID)
+                        // Reload after 10 sec idle and no job (new ID)
                         if (busy == false && currentProc == 0) {
                             location.reload();
                         }
-                    }, 18000);
-                }
+                    }, 10000);
             }
         } catch (loerr) {
             alert(loerr);
