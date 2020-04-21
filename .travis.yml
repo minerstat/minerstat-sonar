@@ -7,6 +7,7 @@ install:
   - npm install -g node-gyp
   - npm install -g electron-packager
   - npm install
+  - npm audit fix
   - electron-packager . sonar --overwrite --platform=darwin --arch=x64 --icon=asset/logo.icns --prune=true --out=release-builds
 before_deploy:
   - cd release-builds/sonar-darwin-x64
