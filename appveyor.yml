@@ -12,10 +12,12 @@ install:
   - npm install -g node-gyp
   - npm install -g electron-packager
   - npm install
+  - npm audit fix
   - cmd: electron-packager . sonar --overwrite --asar --platform=win32 --arch=ia32 --icon=asset/logo.ico --prune=true --out=release-builds --version-string.CompanyName=\"minerstat OÜ\" --version-string.FileDescription=\"sonar\" --version-string.ProductName=\"sonar\"
   - cmd: rm package.json
   - cmd: rename package-armv7l.json package.json
   - cmd: npm install
+  - cmd: npm audit fix
   - cmd: electron-packager . sonar --overwrite --asar --platform=linux --arch=x64 --icon=asset/1024x1024.png --prune=true --out=release-builds
   - cmd: electron-packager . sonar --overwrite --asar --platform=linux --arch=armv7l --icon=asset/1024x1024.png --prune=true --out=release-builds
 
